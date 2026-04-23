@@ -1,0 +1,84 @@
+.edit-page {
+  padding: 32px 28px;
+  max-width: 600px;
+}
+
+.edit-title {
+  color: var(--title-color);
+  margin-bottom: 20px;
+}
+
+.edit-card {
+  background: var(--card-color);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.edit-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 20px;
+  border-bottom: 1px solid ;
+}
+
+.edit-label {
+  font-size: 12px;
+  color: var(--label);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.edit-input {
+  background: rgb(140, 214, 140);
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: rgb(34, 33, 33);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.edit-input:focus {
+  border-color: var(--active-border);
+
+}
+
+.edit-actions {
+  padding: 16px 20px;
+}
+
+.save-btn {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.save-btn:hover {
+  opacity: 0.85;
+}
+
+.input-error {
+  border-color: #ef4444;
+}
+
+.error-msg {
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .edit-page {
+    padding: 20px;
+  }
+}

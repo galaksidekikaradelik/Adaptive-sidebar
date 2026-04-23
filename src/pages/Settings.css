@@ -1,0 +1,50 @@
+.setting-page {
+  padding: 32px 28px;
+  max-width: 600px;
+}
+
+.setting-title {
+  color: var(--title-color);
+  margin-bottom: 20px;
+}
+
+.setting-card {
+  background: var(--card-color);
+  border-radius: 12px;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.setting-row span{
+    color: var(--label);
+    font-weight: bold;
+}
+
+.btn{
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(143, 202, 143);
+    padding: 6px 14px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover{
+    background-color: #055623;
+    color: #f4f4f4;
+}
+
+
+@media (max-width: 768px) {
+  .setting-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .setting-page {
+    padding: 20px;
+  }
+}

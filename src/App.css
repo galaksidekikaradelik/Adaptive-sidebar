@@ -1,0 +1,32 @@
+.app-layout {
+  display: flex;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.app-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.mobile-btn {
+  display: none;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mobile-btn {
+    display: block;
+  }
+}
