@@ -2,9 +2,11 @@ import "./EditProfile.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Toast from "../components/Toast";
+import { t } from "../constants/translations";
 
-export default function EditProfile({ profile, setProfile }) {
-  const navigate = useNavigate();
+export default function EditProfile({ profile, setProfile, lang }) {
+    const T = t[lang];
+    const navigate = useNavigate();
   const [form, setForm] = useState({ ...profile });
   const [showToast, setShowToast] = useState(false);
   const [errors, setErrors] = useState({});  
@@ -20,31 +22,20 @@ export default function EditProfile({ profile, setProfile }) {
    
   const validate = () => {
     const newErrors = {};
-
-    if (!form.ad.trim()) {
-      newErrors.ad = "Ad boş ola bilməz";
-    } else if (form.ad.trim().length < 2) {
-      newErrors.ad = "Ad ən az 2 hərf olmalıdır";
-    }
-
-    if (!form.email.trim()) {
-      newErrors.email = "Email boş ola bilməz";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      newErrors.email = "Email düzgün formatda deyil";
-    }
-
+    if (!form.ad.trim()) newErrors.ad = T.name + " boş ola bilməz";
+    else if (form.ad.trim().length < 2) newErrors.ad = T.name + " ən az 2 hərf olmalıdır";
+    if (!form.email.trim()) newErrors.email = T.email + " boş ola bilməz";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) newErrors.email = T.email + " düzgün formatda deyil";
     return newErrors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const newErrors = validate();  
+    const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);  
-      return;  
+      setErrors(newErrors);
+      return;
     }
-
     setProfile(form);
     setShowToast(true);
     setTimeout(() => navigate("/profile"), 3000);
@@ -52,11 +43,11 @@ export default function EditProfile({ profile, setProfile }) {
 
   return (
     <section className="edit-page">
-      <h1 className="edit-title">Profili Düzəlt</h1>
+      <h1 className="edit-title">{T.editProfile}</h1>
 
       <form className="card" onSubmit={handleSubmit} noValidate> 
         <div className="edit-row">
-            <label className="label" htmlFor="ad">Ad</label> 
+            <label className="label" htmlFor="ad">{T.name}</label> 
             <input
             id="ad" 
             className={`edit-input ${errors.ad ? "input-error" : ""}`}
@@ -74,7 +65,7 @@ export default function EditProfile({ profile, setProfile }) {
         </div>
 
         <div className="edit-row">
-            <label className="label" htmlFor="email">Email</label> 
+            <label className="label" htmlFor="email">{T.email}</label> 
             <input
             id="email" 
             className={`edit-input ${errors.email ? "input-error" : ""}`}
@@ -92,13 +83,13 @@ export default function EditProfile({ profile, setProfile }) {
         </div>
 
         <div className="edit-actions">
-            <button type="submit" className="save-btn">Saxla</button>
+            <button type="submit" className="save-btn">{T.save}</button>
         </div>
     </form>
 
       {showToast && (
         <Toast
-          message="Dəyişikliklər saxlanıldı!"
+          message={T.save + "!"}
           onClose={() => setShowToast(false)}
         />
       )}
