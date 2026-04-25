@@ -7,7 +7,7 @@ import Settings from "./pages/Settings";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { useProfile } from "./hooks/useProfile";
 import { useAppSidebar } from "./hooks/useAppSidebar";
-import { useState, useEffect } from "react"; // ✅ useEffect əlavə edildi
+import { useState, useEffect } from "react"; 
 import "./App.css";
 
 function App() {
